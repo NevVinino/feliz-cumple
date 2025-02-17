@@ -8,7 +8,7 @@
         body {
             text-align: center;
             background: url('https://source.unsplash.com/1600x900/?birthday') no-repeat center center/cover;
-            color: black;
+            color: green;
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -37,11 +37,15 @@
     <h1>¡Feliz Cumpleaños! 🎉🎂</h1>
     <p>Que este día esté lleno de alegría y felicidad.</p>
     <button onclick="playMusic()">Haz clic para celebrar 🎶</button>
-    <audio id="birthdayMusic" src="https://www.bensound.com/bensound-music/bensound-birthday.mp3"></audio>
+    <audio id="birthdayMusic">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        Tu navegador no soporta audio.
+    </audio>
     
     <script>
         function playMusic() {
-            document.getElementById('birthdayMusic').play();
+            let audio = document.getElementById('birthdayMusic');
+            audio.play().catch(error => console.log("Error al reproducir: ", error));
         }
     </script>
 </body>
